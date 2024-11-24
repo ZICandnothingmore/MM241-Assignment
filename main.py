@@ -1,7 +1,17 @@
 import gym_cutting_stock
 import gymnasium as gym
+import pygame
 from policy import GreedyPolicy, RandomPolicy
 from student_submissions.s2210xxx.policy2210xxx import Policy2210xxx
+
+# Khởi tạo pygame
+pygame.init()
+
+# Tạo cửa sổ đồ họa với kích thước 600x400
+screen = pygame.display.set_mode((600, 400))
+
+# Đặt tiêu đề cho cửa sổ
+pygame.display.set_caption("Cutting Stock Simulation")
 
 # Create the environment
 env = gym.make(
@@ -54,5 +64,16 @@ if __name__ == "__main__":
 
     #     if terminated or truncated:
     #         observation, info = env.reset()
+    # Đặt màu nền cho cửa sổ (màu đen)
+    screen.fill((0, 0, 0))
+
+    # Cập nhật cửa sổ
+    pygame.display.update()
+
+# Thoát pygame
+pygame.quit()
+sys.exit()
+
+#Ctrl c to interrupt
 
 env.close()
